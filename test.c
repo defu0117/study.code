@@ -1,10 +1,19 @@
+
 #include <stdio.h>
-int main()
+Max(intx, inty)
 {
-int num1 = 0;
-int num2 = 0;
-int sum = 0;
-scanf_s ("%d%d", &num1, &num2);
-sum = num1 + num2;
-printf("sum=%d\n", sum); return 0;
+	if (x > y)
+		return x;
+	else
+		return y
 }
+int main()
+	{
+	int a = 0;
+	int b = 0;
+	int max = 0;
+	scanf("%d%d", &a, &b);
+	max = Max(a,b);
+	printf("%d\n", max);
+	return 0;
+	}
