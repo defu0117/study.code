@@ -1,19 +1,24 @@
-
+//#include <stdio.h>
+//int main()
+//{
+//	int num1 = 0;
+//	int num2 = 0;
+//	int sum = 0;
+//	scanf("%d%d", &num1, &num1);
+//	sum = num1 + num2;
+//	printf("sum=%d\n", sum);
+//	return 0;
+}
 #include <stdio.h>
-Max(intx, inty)
+int global = 2022;
+void test()
 {
-	if (x > y)
-		return x;
-	else
-		return y
+	printf("test()--%d", global);
 }
 int main()
-	{
-	int a = 0;
-	int b = 0;
-	int max = 0;
-	scanf("%d%d", &a, &b);
-	max = Max(a,b);
-	printf("%d\n", max);
+{
+	test();
+	printf("%d", global);
 	return 0;
-	}
+}
+
