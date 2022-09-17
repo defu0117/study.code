@@ -1,20 +1,18 @@
+#define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-#include <string.h>
-struct book 
-{
-	char name[20];
-	short price;
-};
-
 int main()
 {
-	struct book b1={"CÓïÑÔÉè¼Æ",55 };
-	struct book* pb = &b1;
-	printf("%s\n", pb->name);
-	printf("%d\n", pb->price);
-pb->price = 15;
-strcpy (pb->name,"c++");
-	printf("%s\n", pb->name);
-	printf("%d\n", pb->price);
+	int b = 1;
+	int i = 0;
+	int c = 0;
+	int n = 0;
+	scanf("%d", &n);
+	for (i = 1;i<=n; i++)
+	{
+		b = b * i;
+		c = c + b;
+	}
+	printf("%d\n", b);
+	printf("%d\n", c);
 	return 0;
 }
