@@ -1,55 +1,71 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-#include<stdio.h>
-#include<stdlib.h>
-#include<time.h>
+#include "game.h"
 void menu()
 {
-	printf("**********************\n");
-	printf("\n**play：1 退出：0*****\n");
-	printf("\n**********************\n");
+	printf("                          \n");
+	printf("    1.play        0.exit  \n");
+	printf("                          \n");
 }
 void game()
 {
-	int b = 0;
-	b = rand()%100+1;//生成一个随机数,拿时间戳来设置随机数的生成起点
-	//time_t time(time_t* timer)
-	int a = 0;
-	printf("请输入：");
+	char ret = 0;
+	char board[ROW][COL] = { 0 };
+	InitBoard(board, ROW, COL);
+	DisplayBoard(board, ROW, COL);
 	while (1)
 	{
-		scanf("%d", &a);
-		if (a > b)
-			printf("输大了\n");
-		else if (a < b)
-			printf("输小了\n");
-		else
+		playermove(board, ROW, COL);
+		DisplayBoard(board, ROW, COL);
+		ret=iswin(board, ROW, COL);
+		if (ret != 'c')
 		{
-			printf("正确\n");
-			system("cls");
+			break;
+		}
+		computermove(board, ROW, COL);
+		DisplayBoard(board, ROW, COL);
+		ret=iswin(board, ROW, COL);
+		if (ret != 'c')
+		{
 			break;
 		}
 	}
+	if (ret == '*')
+	{
+		printf("玩家胜利\n");
+	}
+	else if (ret == '#')
+	{
+		printf("电脑胜利\n");
+	}
+	else
+	{
+		printf("平局\n");
+	}
 }
-int main()
+void test()
 {
 	int input = 0;
-	srand((unsigned int)time(NULL));
-	do 
+	do
 	{
-		menu();
-		printf("请输入>\n");
+		srand((unsigned int)time(NULL));
+		menu();	
+		printf("请选择\n");
 		scanf("%d", &input);
-		switch (input)
+		switch(input)
 		{
 		case 1:
 			game();
-				break;
+			break;
 		case 0:
-			printf("退出程序\n");
+			printf("退出游戏\n");
 			break;
 		default:
-				break;
+			break;
 		}
 	} while (input);
+}
+int main()
+{
+	test();
 	return 0;
 }
